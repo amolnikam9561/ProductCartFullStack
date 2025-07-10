@@ -1,0 +1,31 @@
+<div class="container mt-5 text-center text-danger">
+  <!-- Start Button -->
+  <button class="btn btn-success mb-3" (click)="activateButtons()">Start</button>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of newProduct">
+        <td>{{ i.id }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.description }}</td>
+        <td>{{ i.price }}</td>
+        <td>{{ i.stock }}</td>
+        <td>
+          <button class="btn btn-primary" [disabled]="!isActivated" (click)="editProduct(i)">Edit</button>
+          &nbsp;
+          <button class="btn btn-danger" [disabled]="!isActivated" (click)="deleteProduct(i.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
